@@ -1,5 +1,6 @@
 type Query {
   vehicles: [Vehicle]
+  vehicle(makeId: Int!): Vehicle
 }
 
 type Vehicle {
@@ -7,7 +8,6 @@ type Vehicle {
   makeName: String!
   vehicleTypes: [VehicleType]!
 }
-
 type VehicleType {
   typeId: Int!
   typeName: String!
