@@ -8,6 +8,7 @@ type Vehicle {
   makeName: String!
   vehicleTypes: [VehicleType]!
 }
+
 type VehicleType {
   typeId: Int!
   typeName: String!
