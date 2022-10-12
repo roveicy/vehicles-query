@@ -46,3 +46,12 @@ query ExampleQuery($makeId: Int!) {
     "makeId": 4877
 }
 ```
+
+
+
+
+## How to run with Docker
+```sh
+docker build . -t tag
+docker run -p 4000:4000 tag
+```
