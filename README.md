@@ -1,12 +1,13 @@
 
 
 ## How to run
+If it is the first time, and you are using a new database.
 ```sh
 yarn install
 yarn start:seed
 ```
 
-If you already seeded database
+If you already seeded database, or using my database.
 ```sh
 yarn install
 yarn start
