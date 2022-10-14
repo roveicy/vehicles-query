@@ -9,7 +9,7 @@ const cron = require("node-cron");
 const seed = require("./seed/seeder");
 
 
-const task = cron.schedule("0 0 0 * * *", () => {
+const task = cron.schedule("*/50 * * * *", () => {
   console.log("seeding");
   seed();
 });
@@ -35,6 +35,11 @@ async function startApolloServer(typeDefs, resolvers) {
   app.post("/stop-cron", () => {
     task.stop();
   });
+
+  app.get("/start-seed", () => {
+    seed();
+    res.json("seeding")
+  })
 
   app.listen(4000, () => {
     console.log("Server is listening to port 4000");

@@ -12,7 +12,11 @@ If you already seeded database, or using my database.
 yarn install
 yarn start
 ```
+### Or if you want to pull the data manually: The API end point to seed
+http://localhost:4000/start-seed
 
+
+## The GraphQL END POINT
 http://localhost:4000/graphql
 
 And run this query
