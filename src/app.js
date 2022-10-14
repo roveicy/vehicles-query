@@ -9,7 +9,7 @@ const cron = require("node-cron");
 const seed = require("./seed/seeder");
 
 
-const task = cron.schedule("*/50 * * * *", () => {
+const task = cron.schedule("0 0 0 * * *", () => {
   console.log("seeding");
   seed();
 });
