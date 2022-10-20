@@ -12,7 +12,8 @@ phases:
   pre_build:
     commands:
       - echo Entered the pre_build phase...
-      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+      - aws --version
+      - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 111782135825.dkr.ecr.us-east-2.amazonaws.com
       - REPOSITORY_URI=111782135825.dkr.ecr.us-east-2.amazonaws.com/vehicle-repository
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
