@@ -12,13 +12,19 @@ phases:
   pre_build:
     commands:
       - echo Entered the pre_build phase...
+      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+      - REPOSITORY_URI=111782135825.dkr.ecr.us-east-2.amazonaws.com/vehicle-repository
+      - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
     commands:
       - echo Entered the build phase...
       - echo Building the Docker image...
-      - docker build -t vehicle-query:latest .
-      - docker tag vehicle-query:latest vehicle-query:latest
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+
   post_build:
     commands:
       - echo Entered the post_build phase...
       - echo Pushing the Docker image...
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
